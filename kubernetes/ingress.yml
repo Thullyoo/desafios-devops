@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: desafio-devops-ingress
+  namespace: desafio-devops-namespace
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
+spec:
+  rules:
+  - host: meuapp.local
+    http:
+      paths: 
+        - path: / 
+          pathType: Prefix
+          backend:
+            service:
+              name: desafio-devops-service
+              port:
+                number: 80
