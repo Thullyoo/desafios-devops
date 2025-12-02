@@ -4,9 +4,10 @@ metadata:
   name: desafio-devops-service
   namespace: desafio-devops-namespace
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: desafio-devops-app
   ports:
     - port: 80
       targetPort: 3000
+      nodePort: 30007
