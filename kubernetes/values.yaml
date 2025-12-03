@@ -1,0 +1,24 @@
+replicaCount: 3
+image:
+  repository: thullyoo/desafio-devops
+  tag: latest
+containerPort: 3000
+deploymentName: desafio-devops-deployment
+env:
+  - name: NAME
+    value: Thúllyo
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 3000
+  nodePort: 30080
+
+ingress:
+  enabled: true
+  host: meuapp.local
+  path: /
+  pathType: Prefix
+
+namespace:
+  name: desafio-devops
